@@ -9,9 +9,11 @@ class Backer
     def back_project(project)
      ProjectBacker.new(project, self)
     end    
-    binding.pry
+    
 
     def backed_projects
-        
+     projectbackers = ProjectBacker.all.select {|project_backer| project_backer.backer == self}    
+     projectbackers.collect {|pb| pb.project}
     end    
+
 end    
